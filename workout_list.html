@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>Workout List</h2>
+
+<form method="get" action="">
+    <label for="date">Filter by date:</label>
+    <select name="date" id="date" onchange="this.form.submit()">
+        <option value="">All Dates</option>
+        {% for date in dates %}
+        <option value="{{ date|date:'Y-m-d' }}" {% if date|date:'Y-m-d' == selected_date %}selected{% endif %}>
+            {{ date|date:'Y-m-d' }}
+        </option>
+        {% endfor %}
+    </select>
+
+    <button type="submit" name="filter" value="user" {% if filter_type == 'user' %}class="active"{% endif %}>Workouts for Test User</button>
+    <button type="submit" name="filter" value="all" {% if filter_type == 'all' %}class="active"{% endif %}> Workouts for All Users</button>
+</form>
+
+{% if object_list %}
+    {% for obj in object_list %}
+    <div>
+        <h3>{{ obj.date }}</h3>
+        <p>User: {{ obj.user.username }}</p>
+        <p>Notes: {{ obj.notes }}</p>
+    </div>
+    {% endfor %}
+{% endif %}
+{% endblock %}

@@ -1,4 +1,6 @@
-This website creates 4 relational databases to store workout information regarding the user, machine or equipment, exercise, workout, and workout exercises that were completed. 
+**Workout Tracker Database**
+
+This repository contains the schema and structure for a workout tracking application. The website uses four relational models to store and manage information regarding the users, machines or equipment, exercise, workout, and workout exercises. These models were created using Python Django framework to create the website and ORM relational modeling schema. 
 
 Relational Schema:
 
@@ -22,3 +24,8 @@ WorkoutExercises(id, Workout_id, Exercise_id, reps, weight, sets)
 
 WorkoutExercises uses the primary key of id to identify each workout exercise uniquely. This database table has the foreign key to the Workout database table and foreign key to the exercise database table. Lastly, it contains information regarding the attributes of reps, weights, and sets based on each workout exercise. 
 
+Usage:
+User Management: Users can sign up, log in, and manage their accounts.
+Machine or Equipment Management: Users can add, edit, or delete machines or equipment.
+Exercise Management : Users can add, edit, or delete exercises.
+Workout Logs: Users can log their workouts, including the date, exercises performed, reps, weight, and sets.
